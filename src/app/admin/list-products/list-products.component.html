@@ -1,0 +1,57 @@
+
+<div class="alert alert-danger text-center mt-2" role="alert">
+<strong> Admin Panel</strong>
+  </div>
+<div class="mt-2">
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <input type="text" [(ngModel)]="searchtext"  class="form-control" placeholder="Search Box">
+                <button (click)="filterproduct()"class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                <button (click)="clearsearch()"class="btn btn-outline-secondary" type="button" id="button-addon2">Clear</button>
+                
+            </div>
+                <hr>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="col">
+            <div>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Modif</th>
+
+                        <th scope="col">Image</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let items of filteredProductList; let index=index">
+                        <th scope="row">{{ index+1}}</th>
+                        <td>{{ items.name }}</td>
+                        <td>{{ items.quantity }}</td>
+                        <td><div class="btn-group" role="group">
+                          <button (click)="subquantity(items)" type="button" class="btn btn-danger">-</button>
+                          <button (click)="addquantity(items)" type="button" class="btn btn-primary">+</button>
+                        </div>
+                        </td>
+
+
+                        <td><img src= "{{ items.image }}" class="product-img"></td>
+                        <td><button (click)="deleteproduct(items)"class="btn btn-outline-danger" type="button">delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+             
+            </div> 
+            
+        </div>
+    </div>
+    
+</div>

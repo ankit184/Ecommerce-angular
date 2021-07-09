@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../services/products.service';
+import { ProductsService } from 'src/app/products/services/products.service';
 import { Router } from '@angular/router';
-import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-list-products',
@@ -19,8 +18,8 @@ export class ListProductsComponent implements OnInit {
     this.filteredProductList=this.productlist;
   }
 
-  gotoproductsdetail(id:number): void{
-    this.router.navigate(['/product/'+id]);
+  gotoproductlist(): void{
+    this.router.navigate(['']);
   }
 
   filterproduct():void{
@@ -31,4 +30,15 @@ export class ListProductsComponent implements OnInit {
     this.filteredProductList=this.productlist;
     this.searchtext="";
   }
+  deleteproduct(item:any):void{
+    this.service.deleteProduct(item.id);
+  }
+  addquantity(item:any):void{
+      this.service.increaseProductQuantity(item.id);
+  }
+
+  subquantity(item:any):void{
+    this.service.decreaseProductQuantity(item.id);
+}
+  
 }

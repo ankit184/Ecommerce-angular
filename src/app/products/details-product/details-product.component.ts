@@ -33,6 +33,7 @@ getproductdescription(id: number):void{
 
 goback():void{
   this.router.navigate([''])
+  
 
 }
 

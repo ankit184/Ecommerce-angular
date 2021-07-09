@@ -1,6 +1,16 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <span class="navbar-brand mb-0 h1">Ecommerce</span>
+    <form class="d-flex">
+            <button (click)="gotoAdminPanel()" class="btn btn-outline-success" type="button">Admin panel</button>
+
+            <button (click)="gotAddProduct()"  style="margin-left:10px;"class="btn btn-outline-success" type="button">Add Product</button>
+
+
+
+            <button style="margin-left:10px;"(click)="gotoProductPanel()" class="btn btn-outline-success" type="button">Product panel</button>
+
+          </form>
   </div>
 </nav>
 <div class="container"><router-outlet></router-outlet></div>

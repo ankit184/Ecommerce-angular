@@ -2,8 +2,10 @@
     <div class="row">
         <div class="col">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search Box">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                <input type="text" [(ngModel)]="searchtext"  class="form-control" placeholder="Search Box">
+                <button (click)="filterproduct()"class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                <button (click)="clearsearch()"class="btn btn-outline-secondary" type="button" id="button-addon2">Clear</button>
+                
             </div>
                 <hr>
         </div>
@@ -13,11 +15,19 @@
     <div class="row">
         <div class="col">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col" *ngFor="let items of productlist">
+                <div class="col" *ngFor="let items of filteredProductList">
                   <div class="card border-dark pointer"  (click)="gotoproductsdetail(items.id)">
                     <img src= "{{ items.image }}" class="card-img-top">
                     <div class="card-body text-center">
-                      <h5 class="card-title">{{ items.name }} </h5>
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title">{{ items.name }} </h5>
+                            </div>
+                            <div class="col">
+                                <h5 class="card-title">{{ items.quantity }} </h5>
+                            </div>
+                        </div>
+                      
                     </div>
                     <div class="card-footer text-center">
                         <small class="text-muted">{{ items.stars}}</small>
